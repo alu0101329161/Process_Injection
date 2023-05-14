@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Actual Health"</Description>
+      <VariableType>Float</VariableType>
+      <Address>2A893A9B6BC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>25A0A2FCD9C</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>HealthData :mov [rax+0C],ecx</Description>
+      <AddressString>25A0B1FA273</AddressString>
+      <Before>
+        <Byte>8D</Byte>
+        <Byte>F4</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>C3</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Healt :movsxd  rax,dword ptr [rax+0C]</Description>
+      <AddressString>25A0B0DD777</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>EC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

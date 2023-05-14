@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Actual Health"</Description>
+      <VariableType>Float</VariableType>
+      <Address>2A893A9B6BC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>""</Description>
+      <VariableType>Float</VariableType>
+      <Address>25A0A2FCD9C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>""</Description>
+      <VariableType>Float</VariableType>
+      <Address>2823E0E8FCC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>""</Description>
+      <VariableType>Float</VariableType>
+      <Address>29063EDB16C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"GetHpData "</Description>
+      <Color>8080FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Rising Hell.exe
+  Version: 
+  Date   : 2023-03-26
+  Author : Joseph
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+define(godmode,HPManager:GetHp+27)
+//aobscan(godmode,48 63 40 0C 89 45 EC 48 8B) // should be unique
+alloc(newmem,$1000,godmode)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movsxd  rax,dword ptr [rax+30]
+  mov [rbp-14],eax
+  jmp return
+
+godmode:
+  jmp newmem
+  nop 2
+return:
+registersymbol(godmode)
+
+[DISABLE]
+
+godmode:
+  db 48 63 40 0C 89 45 EC
+
+unregistersymbol(godmode)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: HPManager:GetHp+27
+
+HPManager:GetHp+4: 48 83 EC 50     - sub rsp,50
+HPManager:GetHp+8: 48 89 4D D8     - mov [rbp-28],rcx
+HPManager:GetHp+c: 48 8B C1        - mov rax,rcx
+HPManager:GetHp+f: 48 83 C0 20     - add rax,20
+HPManager:GetHp+13: 48 63 08        - movsxd  rcx,dword ptr [rax]
+HPManager:GetHp+16: 89 4D E0        - mov [rbp-20],ecx
+HPManager:GetHp+19: 48 63 48 04     - movsxd  rcx,dword ptr [rax+04]
+HPManager:GetHp+1d: 89 4D E4        - mov [rbp-1C],ecx
+HPManager:GetHp+20: 48 63 48 08     - movsxd  rcx,dword ptr [rax+08]
+HPManager:GetHp+24: 89 4D E8        - mov [rbp-18],ecx
+// ---------- INJECTING HERE ----------
+HPManager:GetHp+27: 48 63 40 0C     - movsxd  rax,dword ptr [rax+0C]
+// ---------- DONE INJECTING  ----------
+HPManager:GetHp+2b: 89 45 EC        - mov [rbp-14],eax
+HPManager:GetHp+2e: 48 8B C5        - mov rax,rbp
+HPManager:GetHp+31: 48 83 C0 F0     - add rax,-10
+HPManager:GetHp+35: 48 8B 4D E0     - mov rcx,[rbp-20]
+HPManager:GetHp+39: 48 89 4D F0     - mov [rbp-10],rcx
+HPManager:GetHp+3d: 48 8B 4D E8     - mov rcx,[rbp-18]
+HPManager:GetHp+41: 48 89 4D F8     - mov [rbp-08],rcx
+HPManager:GetHp+45: 48 8D 08        - lea rcx,[rax]
+HPManager:GetHp+48: 48 8D 64 24 00  - lea rsp,[rsp+00]
+HPManager:GetHp+4d: 90              - nop 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"[Enable/Disable] Bypass Message Modify memory"</Description>
+      <Color>C08000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Rising Hell.exe
+  Version: 
+  Date   : 2023-03-26
+  Author : Joseph
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+define(cheatFloat,OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected)
+//aobscan(cheatFloat,00 55 48 8B EC 48 83 EC 30 48 B8 88 3A) // should be unique
+alloc(newmem,$1000,cheatFloat)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //push rbp
+  ret
+  mov rbp,rsp
+  sub rsp,30
+  jmp return
+
+cheatFloat:
+  jmp newmem
+  nop 3
+return:
+registersymbol(cheatFloat)
+
+[DISABLE]
+
+cheatFloat:
+  db 55 48 8B EC 48 83 EC 30
+
+unregistersymbol(cheatFloat)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected
+
+28239CE42E9: 04 02                          - add al,02
+28239CE42EB: 05 04 03 01 50                 - add eax,50010304
+28239CE42F0: 00 00                          - add [rax],al
+28239CE42F2: 00 00                          - add [rax],al
+28239CE42F4: 00 00                          - add [rax],al
+28239CE42F6: 00 00                          - add [rax],al
+28239CE42F8: 00 00                          - add [rax],al
+28239CE42FA: 00 00                          - add [rax],al
+28239CE42FC: 00 00                          - add [rax],al
+28239CE42FE: 00 00                          - add [rax],al
+// ---------- INJECTING HERE ----------
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected: 55                             - push rbp
+// ---------- DONE INJECTING  ----------
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+1: 48 8B EC                       - mov rbp,rsp
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+4: 48 83 EC 30                    - sub rsp,30
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+8: 48 B8 88 3A A5 29 82 02 00 00  - mov rax,0000028229A53A88
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+12: 48 8B 00                       - mov rax,[rax]
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+15: 48 85 C0                       - test rax,rax
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+18: 74 1B                          - je OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+35
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+1a: 48 B8 88 3A A5 29 82 02 00 00  - mov rax,0000028229A53A88
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+24: 48 8B 00                       - mov rax,[rax]
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+27: 48 8B C8                       - mov rcx,rax
+OPS.AntiCheat.Detector.FieldCheatDetector:OnCheatDetected+2a: 48 89 45 F0                    - mov [rbp-10],rax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"[Enable/Disable] God Mode"</Description>
+      <Color>C08000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Rising Hell.exe
+  Version: 
+  Date   : 2023-03-26
+  Author : Joseph
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+define(godmode,HPManager:SubtractHp)
+//aobscan(godmode,55 48 8B EC 48 81 EC D0 02 00 00 48 89 7D) // should be unique
+alloc(newmem,$1000,godmode)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //push rbp
+  ret
+  mov rbp,rsp
+  sub rsp,000002D0
+  jmp return
+
+godmode:
+  jmp newmem
+  nop 6
+return:
+registersymbol(godmode)
+
+[DISABLE]
+
+godmode:
+  db 55 48 8B EC 48 81 EC D0 02 00 00
+
+unregistersymbol(godmode)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: HPManager:SubtractHp
+
+2263F7FA2DD: 3A 26                          - cmp ah,[rsi]
+2263F7FA2DF: 02 00                          - add al,[rax]
+2263F7FA2E1: 00 00                          - add [rax],al
+2263F7FA2E3: 00 00                          - add [rax],al
+2263F7FA2E5: 00 00                          - add [rax],al
+2263F7FA2E7: 00 00                          - add [rax],al
+2263F7FA2E9: 00 00                          - add [rax],al
+2263F7FA2EB: 00 00                          - add [rax],al
+2263F7FA2ED: 00 00                          - add [rax],al
+2263F7FA2EF: 00                             - db 00 
+// ---------- INJECTING HERE ----------
+HPManager:SubtractHp: 55                             - push rbp
+// ---------- DONE INJECTING  ----------
+HPManager:SubtractHp+1: 48 8B EC                       - mov rbp,rsp
+HPManager:SubtractHp+4: 48 81 EC D0 02 00 00           - sub rsp,000002D0
+HPManager:SubtractHp+b: 48 89 7D E8                    - mov [rbp-18],rdi
+HPManager:SubtractHp+f: 4C 89 75 F0                    - mov [rbp-10],r14
+HPManager:SubtractHp+13: 4C 89 7D F8                    - mov [rbp-08],r15
+HPManager:SubtractHp+17: 4C 8B F9                       - mov r15,rcx
+HPManager:SubtractHp+1a: F3 0F 11 8D B0 FD FF FF        - movss [rbp-00000250],xmm1
+HPManager:SubtractHp+22: F3 0F 11 95 A8 FD FF FF        - movss [rbp-00000258],xmm2
+HPManager:SubtractHp+2a: 49 8B F9                       - mov rdi,r9
+HPManager:SubtractHp+2d: 48 B8 F0 FB 9F 40 26 02 00 00  - mov rax,00000226409FFBF0
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>HealthData :mov [rax+0C],ecx</Description>
+      <AddressString>25A0B1FA273</AddressString>
+      <Before>
+        <Byte>8D</Byte>
+        <Byte>F4</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>C3</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Healt :movsxd  rax,dword ptr [rax+0C]</Description>
+      <AddressString>25A0B0DD777</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>EC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Structures StructVersion="2">
+    <Structure Name="HPManager" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="16" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000010" Description="m_CachedPtr" DisplayMethod="unsigned integer"/>
+        <Element Offset="24" Vartype="Float" Bytesize="4" OffsetHex="00000018" Description="lastDamage" DisplayMethod="unsigned integer"/>
+        <Element Offset="28" Vartype="Float" Bytesize="4" OffsetHex="0000001C" Description="shieldHp" DisplayMethod="unsigned integer"/>
+        <Element Offset="32" Vartype="Float" Bytesize="4" OffsetHex="00000020" Description="hp" DisplayMethod="unsigned integer"/>
+        <Element Offset="48" Vartype="Double" Bytesize="8" OffsetHex="00000030" Description="fullHp" DisplayMethod="unsigned integer"/>
+        <Element Offset="64" Vartype="Float" Bytesize="4" OffsetHex="00000040" Description="toxinResist" DisplayMethod="unsigned integer"/>
+      </Elements>
+    </Structure>
+    <Structure Name="HPManager 2" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="16" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000010" Description="m_CachedPtr" DisplayMethod="unsigned integer"/>
+        <Element Offset="24" Vartype="Float" Bytesize="4" OffsetHex="00000018" Description="lastDamage" DisplayMethod="unsigned integer"/>
+        <Element Offset="28" Vartype="Float" Bytesize="4" OffsetHex="0000001C" Description="shieldHp" DisplayMethod="unsigned integer"/>
+        <Element Offset="32" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000020" Description="hp" DisplayMethod="unsigned integer"/>
+        <Element Offset="48" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000030" Description="fullHp" DisplayMethod="unsigned integer"/>
+        <Element Offset="64" Vartype="Float" Bytesize="4" OffsetHex="00000040" Description="toxinResist" DisplayMethod="unsigned integer"/>
+      </Elements>
+    </Structure>
+  </Structures>
+</CheatTable>

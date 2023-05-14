@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <Forms>
+    <CETrainer Class="TTrainerForm" Encoding="Ascii85">=UhfHn;HB6wGb:.NjH.!O*ov_w0rXG/j@}2aqyHbjA5JP)y0vEHDg*w2zj04+srl*sHfgLo(63y:Tw0)+iJT_peK-C-bau0^]7K!0LYT?+}2UoxMW0)xmenM)2gEN/Vu;6H3()0J)uRcz_8o^ygahrl!cs_za2gDa#]LGpED@qg_0V;FSF5Qmc/v*$17QKHt6+p]m]iWc51F3Z@bO1Q!XByoSXn;tQ3dM7^Z+snU_8lnE8{f1Uk)[/;m^N?T#m:f#0lnnhQdhuM}-JB0u[-h@jUKUk%TOKMl]-oB2VyqNP,H+lCaiQ!k6B%]S}%f0G8#do)NnkV.E1Bh)4rW;YWmE]mrWfqRk*%cJErg9A,K?0:02A#{pj5kPx)6Y(iZq_meRTJFt$=Tm}9Wq1}gf)YXX94lM=x^]c3T1(}/=%]^DMr,S[,SKizt-ar!bj}-4AXnvkWH)lqY7K{aZcp!A.LV8F3*!xI;e{4i-U3HYq}%9q9JzXJ9X(lg1uyhOsMe,R,N992Fbu*5j-B(On{84k[LQ$#QL@i_hSR.jGaOg%t#-l=dM*@-W($0L1zwUWQ3goPSz*_/rd2(wE@(:Qx,0]7^^*Zf*G@Q3*s+BCxy;snwC}5wD4@v@k/=*3:Cm^2mJeY%.!1moytU,YqTNw#c^9G24U;vP:rlvkWLF}q*oUvG%GMA}miU?jlV7}o!G3_vzcoL]wm]iBU4EEKL1aExLcqxs:$tBR=.Sr3ysQE8g}#$aS5,xUEj];]$sJ}(9),;2KpR(:Z{NE]R$e++E8Zw;zwLw5,VMg7+/tuV]),;36J5URM^yeLQrq3cyS,/gegaQIE/U!K$6{bM):]78Pt-k@]=JP)P%l]y7G5Zk0bbPF5HA^g2rsk@)9*gC50t;cth)Tg;_epV^WkRp@z{8Gsz!K5s2j%F(%wLM8+O]ov%P%B%]Tj[v[EtN4MHv#/b#]Fq0{1*5$F^kp9iTwog};LzSxm1zAXEFFB?E4Dc%ocKkpVh:YB6cJzn;,qZ]Kk[0?bl_15q0i2l_51?:4E-L[-;[/zUxddKQ]Z%OY7_5ESL_Iw}?=fg$Ww#{X11@xp</CETrainer>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"DINERO"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>nioh.exe+2176568</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"INFINITE LEVEL XP"</Description>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+4B07D8) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov rbx,#1000000
+
+originalcode:
+mov [rsi+08],rbx
+cmp word ptr [rdi+0C],00
+
+exit:
+jmp returnhere
+
+"nioh.exe"+4B07D8:
+jmp newmem
+nop 4
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+4B07D8:
+mov [rsi+08],rbx
+cmp word ptr [rdi+0C],00
+//Alt: db 48 89 5E 08 66 83 7F 0C 00
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12</ID>
+      <Description>"CUERPO"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>nioh.exe+2224B28</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13</ID>
+      <Description>"BODY MAX"</Description>
+      <Color>FF00FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+4B6C91) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov esi,(int)200
+// MAX VALUE OF BODY
+originalcode:
+mov [rbx+000AE5C8],esi
+
+exit:
+jmp returnhere
+
+"nioh.exe"+4B6C91:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+4B6C91:
+mov [rbx+000AE5C8],esi
+//Alt: db 89 B3 C8 E5 0A 00
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"CORAZÓN"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>nioh.exe+2224B2C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"CORAZON MAX"</Description>
+      <Color>FFFF00</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+4B6831) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov esi,(int)200
+
+originalcode:
+mov [rbx+000AE5CC],esi
+
+exit:
+jmp returnhere
+
+"nioh.exe"+4B6831:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+4B6831:
+mov [rbx+000AE5CC],esi
+//Alt: db 89 B3 CC E5 0A 00
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>19</ID>
+      <Description>"MODIFY HEALTH"</Description>
+      <Color>00FF00</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+2A050A) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov rcx,#10000
+
+originalcode:
+mov [rbx+10],rcx
+cmp rcx,rax
+
+exit:
+jmp returnhere
+
+"nioh.exe"+2A050A:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+2A050A:
+mov [rbx+10],rcx
+cmp rcx,rax
+//Alt: db 48 89 4B 10 48 3B C8
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20</ID>
+      <Description>"SCRIPT HEALT IGUALANDO RAX Y RSI PERO TAMBIEN VIDA ENEMIGO"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+2A050A) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov rcx,10000
+mov rax,10000
+
+originalcode:
+mov [rbx+10],rcx
+cmp rcx,rax
+
+exit:
+jmp returnhere
+
+"nioh.exe"+2A050A:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+2A050A:
+mov [rbx+10],rcx
+cmp rcx,rax
+//Alt: db 48 89 4B 10 48 39 C1
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>21</ID>
+      <Description>"FECHAS"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>nioh.exe+2178B38</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>22</ID>
+      <Description>"SUMA FLECHAS"</Description>
+      <Color>0080FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+4A9338) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//Opcode
+// arrows R12 01  R13 00
+// other  R12 00  R13 0A
+
+cmp r12,0
+je originalcode
+
+mov r15w,#-2
+
+originalcode:
+sub [rbp+00000218],r15w
+
+
+exit:
+jmp returnhere
+
+"nioh.exe"+4A9338:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+4A9338:
+sub [rbp+00000218],r15w
+//Alt: db 66 44 29 BD 18 02 00 00
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>27</ID>
+      <Description>"PUNTERO DE LA VIDA"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"nioh.exe"+020A2820</Address>
+      <Offsets>
+        <Offset>460</Offset>
+        <Offset>C8</Offset>
+        <Offset>0</Offset>
+        <Offset>8</Offset>
+        <Offset>10</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>28</ID>
+      <Description>"FLECHAS NORMALES"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>7FF7D8F28B38</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>29</ID>
+      <Description>"FLECHAS SPECIALES"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>7FF7D8F26F98</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"STAMINA"</Description>
+      <VariableType>Float</VariableType>
+      <Address>2CF0909F770</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"STAMINA INFINITA"</Description>
+      <Color>400080</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+2A8A3E) 
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(aux,4,"nioh.exe"+2A8A3E) // variable(4 byte)
+
+// declaramos variable double word float(999)
+aux:
+dd (float)9999.9
+
+newmem: //this is allocated memory, you have read,write,execute access
+
+cmp [rcx+78],1
+jne originalcode
+
+//STAMINA------
+//RCX        PLAYER ENEMIES
+//OFFSET 78   1      0
+
+movss xmm2,[aux]
+
+originalcode:
+movss [rcx],xmm2
+comiss xmm3,xmm1
+
+exit:
+jmp returnhere
+
+"nioh.exe"+2A8A3E:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(aux)
+"nioh.exe"+2A8A3E:
+movss [rcx],xmm2
+comiss xmm3,xmm1
+//Alt: db F3 0F 11 11 0F 2F D9
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>34</ID>
+      <Description>"ENEMIGOS NO PUEDEN TOCARTE + STAMINA INFINITA"</Description>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+2A8A3E) 
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(aux,4,"nioh.exe"+2A8A3E) // variable(4 byte)
+
+// declaramos variable double word float(999)
+aux:
+dd (float)9999.9
+
+newmem: //this is allocated memory, you have read,write,execute access
+
+cmp [rcx+78],1
+jne originalcode
+
+//STAMINA------
+//RCX        PLAYER ENEMIES
+//OFFSET 78   1      0
+
+movss xmm2,[aux]
+movss [rcx],xmm2
+
+jmp exit
+
+originalcode:
+movss [rcx],xmm2
+mov [rcx],0 // enemigo stamina cero
+comiss xmm3,xmm1
+
+exit:
+jmp returnhere
+
+"nioh.exe"+2A8A3E:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(aux)
+"nioh.exe"+2A8A3E:
+movss [rcx],xmm2
+comiss xmm3,xmm1
+//Alt: db F3 0F 11 11 0F 2F D9
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>35</ID>
+      <Description>"VIDA JUGADOR"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>1D88EC9A750</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>36</ID>
+      <Description>"ENEMIGOS"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>1D8F5315080</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>37</ID>
+      <Description>"GOD MODE + 2HITS"</Description>
+      <Color>FF8080</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+2A050A) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+
+cmp [rbx+A8],1
+//A8 PLAYER 1 ENEMIES 0
+
+jne originalcode
+
+mov rcx,[rbx+8]
+//8 MAX HEATH(ACTUALIZO LA VIDA, A VIDA MÁXIMA)
+mov [rbx+10],rcx
+cmp rcx,rax
+jmp exit
+
+
+originalcode:
+mov rcx,0
+// SI ES ENEMIGO 1 HIT KILL
+mov [rbx+10],rcx
+cmp rcx,rax
+
+exit:
+jmp returnhere
+
+"nioh.exe"+2A050A:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+2A050A:
+mov [rbx+10],rcx
+cmp rcx,rax
+//Alt: db 48 89 4B 10 48 39 C1
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>38</ID>
+      <Description>"REAL GOD MODE"</Description>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nioh.exe"+2A04F3) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+
+cmp [rbx+A8],1
+//A8 PLAYER 1 ENEMIES 0
+
+jne originalcode
+
+
+sub eax,edi // restamos a la vida el daño de ataque
+mov eax,[rbx+8] // actualizmos vida a MAX
+test eax,eax // Comprobamos si es &lt;= 0
+jle nioh.exe+2A051D // si lo es saltamos ahi
+jmp exit
+
+
+
+
+originalcode:
+sub eax,edi
+mov eax,0 // vida del enemigo es 0
+test eax,eax
+jle nioh.exe+2A051D
+
+exit:
+jmp returnhere
+
+"nioh.exe"+2A04F3:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nioh.exe"+2A04F3:
+sub eax,edi
+test eax,eax
+jle nioh.exe+2A051D
+//Alt: db 2B C7 85 C0 7E 24
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>XP :mov [rsi+08],rbx</Description>
+      <AddressString>nioh.exe+4B07D8</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>80</Byte>
+        <Byte>61</Byte>
+        <Byte>B8</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>5E</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>83</Byte>
+        <Byte>7F</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>arrows R12 01  R13 00
+other  R12 00  R13 0A
+STAMINA------
+RCX        PLAYER ENEMIES
+OFFSET 78   1      0
+HEALT PLAYER---------
+RBX+8 MAX HEALTH
+RBX+10 MAX HEALTH
+RBX+A8 PLAYER 1 ENEMIES 0</Comments>
+  <LuaScript>--TRAINERGENERATORSTART--
+--This is autogenerated code. Changing code in this block will
+--get erased and rewritten if you regenerate the trainer code
+
+--Uncomment the following line if this is a Cheat Table format trainer and you don't want CE to show (Tip, save as .CETRAINER alternatively)
+--hideAllCEWindows()
+
+RequiredCEVersion=7.4
+if (getCEVersion==nil) or (getCEVersion()&lt;RequiredCEVersion) then
+  messageDialog('Please install Cheat Engine '..RequiredCEVersion, mtError, mbOK)
+  closeCE()
+end
+addresslist=getAddressList()
+
+
+CETrainer.SEPERATOR.Visible=false
+
+getAutoAttachList().add("nioh.exe")
+gPlaySoundOnAction=false
+CETrainer.fixDPI() --remove this if you have already taken care of DPI issues yourself
+CETrainer.show()
+function AboutClick()
+  showMessage(gAboutText)
+end
+gAboutText=[[This trainer was made by Cheat Engine
+www.cheatengine.org]]
+
+function CloseClick()
+  --called by the close button onClick event, and when closing the form
+  closeCE()
+  return caFree --onClick doesn't care, but onClose would like a result
+end
+
+--TRAINERGENERATORSTOP--
+</LuaScript>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"nioh.exe"+2A04F3</Address>
+      <Comment>GOD MODE PRO
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>"nioh.exe"+2A04F5</Address>
+      <Comment>Comprueba si es zero
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>"nioh.exe"+2A04F7</Address>
+      <Comment>Salta en caso de ser &lt;= que 0
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>"nioh.exe"+2A050A</Address>
+      <Comment>INJECTION GOD MODE(WRITE HEALTH)
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
+</CheatTable>
