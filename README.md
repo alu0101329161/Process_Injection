@@ -24,3 +24,5 @@ y aprovechadas para inyectar código mediante instrucciones en ensamblador.
 
 Autor
 > Joseph Gabino Rodríguez
+> jgabinorodriguez@gmail.com
+> 
