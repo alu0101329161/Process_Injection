@@ -3,7 +3,7 @@ Recursos para el TFG
 
 Video CHEATS NIOH: https://youtu.be/QHDQjjvaEnI
 
-
+## RESUMEN
 En la actualidad a la mayoría de usuarios de videojuegos les suele interesar hacer trampas.
 Esto es algo que puede verse en los diferentes mercados que están en auge, donde se paga
 al programador por modificar el comportamiento de los procesos. El caso más habitual es
@@ -22,3 +22,5 @@ maneja la memoria, qué tipos de datos utiliza para almacenar las variables y ha
 uso de las regiones cueva, que son regiones de memoria no utilizadas por el desarrollador
 y aprovechadas para inyectar código mediante instrucciones en ensamblador.
 
+Autor
+> Joseph Gabino Rodríguez
